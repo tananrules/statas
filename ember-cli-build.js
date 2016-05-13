@@ -11,6 +11,7 @@ module.exports = function(defaults) {
 
   // Bootstrap
   app.import('bower_components/bootstrap/dist/css/bootstrap.css');
+  app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
   
   // Metismenu
   app.import('bower_components/metisMenu/dist/metisMenu.min.css');
