@@ -1,58 +1,58 @@
 <div class="row">
   <div class="col-lg-12">
     <div class="wrapper wrapper-content">
-      <div class="ibox float-e-margins">
-        <div class="ibox-title">
-          <h5>Current Users</h5>
-          <div class="ibox-tools">
-            <a class="collapse-link">
-            <i class="fa fa-chevron-up"></i>
-            </a>
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            <i class="fa fa-wrench"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-user">
-              <li><a href="#">Config option 1</a>
-              </li>
-              <li><a href="#">Config option 2</a>
-              </li>
-            </ul>
-            <a class="close-link">
-            <i class="fa fa-times"></i>
-            </a>
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default {{if (eq activeFilter 'all') 'active'}}" {{action 'filterUsers' 'all'}}>All</button>
+            <button type="button" class="btn btn-default {{if (eq activeFilter 'im') 'active'}}" {{action 'filterUsers' 'im'}}>Influence Manager</button>
+            <button type="button" class="btn btn-default {{if (eq activeFilter 'am') 'active'}}" {{action 'filterUsers' 'am'}}>Account Manager</button>
+            <button type="button" class="btn btn-default {{if (eq activeFilter 'ad') 'active'}}" {{action 'filterUsers' 'ad'}}>Account Director</button>
+            <button type="button" class="btn btn-default {{if (eq activeFilter 'aa') 'active'}}" {{action 'filterUsers' 'aa'}}>Account Analysis</button>
+            <button type="button" class="btn btn-default {{if (eq activeFilter 'id') 'active'}}" {{action 'filterUsers' 'id'}}>Influence Director</button>
+            <button type="button" class="btn btn-default {{if (eq activeFilter 'et') 'active'}}" {{action 'filterUsers' 'et'}}>Executive Team</button>
+            <button type="button" class="btn btn-default {{if (eq activeFilter 'sa') 'active'}}" {{action 'filterUsers' 'sa'}}>Super Admin</button>
           </div>
         </div>
-        <div class="ibox-content">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Followers</th>
-                <th>Connects</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>12,000,000</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>10,000,000</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Larry</td>
-                <td>8,000,000</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
+          <br/><br/><br/>
+        <div class="col-lg-12">
+          <div class="ibox float-e-margins">
+            <div class="ibox-title">
+              <h5>Current Users</h5>
+            </div>
+            <div class="ibox-content">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Followers</th>
+                    <th>Connects</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Mark</td>
+                    <td>12,000,000</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Jacob</td>
+                    <td>10,000,000</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Larry</td>
+                    <td>8,000,000</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>    
         </div>
       </div>
     </div>
