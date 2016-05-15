@@ -26,29 +26,23 @@
                   <tr>
                     <th>#</th>
                     <th>Name</th>
-                    <th>Followers</th>
-                    <th>Connects</th>
+                    <th>Designation</th>
+                    <th>Active Rev</th>
+                    <th>LTE</th>
+                    <th>RP</th>
                   </tr>
                 </thead>
                 <tbody>
+                  {{#each model.users as |user index|}}
                   <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>12,000,000</td>
-                    <td>@mdo</td>
+                    <td>{{addOne index}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.type}}</td>
+                    <td>{{user.active_rev}}</td>
+                    <td>{{user.lte}}</td>
+                    <td>{{user.rp}}</td>
                   </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>10,000,000</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Larry</td>
-                    <td>8,000,000</td>
-                    <td>@twitter</td>
-                  </tr>
+                  {{/each}}
                 </tbody>
               </table>
             </div>
