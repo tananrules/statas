@@ -1,9 +1,9 @@
 import Ember from 'ember';
 
-const {
-  computed,
-  observer
-} = Ember;
+// const {
+//   computed,
+//   observer
+// } = Ember;
 
 export default Ember.Controller.extend({
   activeFilter: 'all',
