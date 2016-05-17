@@ -1,8 +1,7 @@
 import Ember from 'ember';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-export default Ember.Route.extend({
-  session: Ember.inject.service('session'),
-  
+export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model() {
     return {
       offers: [
@@ -22,11 +21,5 @@ export default Ember.Route.extend({
         }
       ]
     };
-  },
-
-  redirect() {
-    if(this.get('session.isAuthenticated')  === false) {
-      this.transitionTo('login');
-    }
   }
 });
