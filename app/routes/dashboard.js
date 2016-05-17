@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  session: Ember.inject.service('session'),
+  
   model() {
     return {
       offers: [
@@ -20,5 +22,11 @@ export default Ember.Route.extend({
         }
       ]
     };
+  },
+
+  redirect() {
+    if(this.get('session.isAuthenticated')  === false) {
+      this.transitionTo('login');
+    }
   }
 });
