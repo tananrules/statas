@@ -8,7 +8,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         {
           name: "Atari",
           description: "I Love Strawberries",
-          icon: "mobile-phone",
+          icon: "youtube-play",
           amount: "12,000,000",
           time_remaining: "05 12 45"
         },
