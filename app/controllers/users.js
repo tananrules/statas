@@ -7,10 +7,25 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   activeFilter: 'all',
+  form: {},
+  selectedUserAccess: null,
+  selectedTeam: null,
 
   actions: {
     filterUsers(type) {
       this.set('activeFilter', type);
+    },
+
+    createNewUser() {
+
+    },
+
+    selectUserAccess(userAccess) {
+      this.set('selectUserAccess', userAccess);
+    },
+
+    selectTeam(team) {
+      this.set('selectedTeam', team);
     }
   }
 });

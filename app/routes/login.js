@@ -6,6 +6,6 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     this.render('login', {
       into: 'application',
       outlet: 'login'
-    })
+    });
   }
 });
