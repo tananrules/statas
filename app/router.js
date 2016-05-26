@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('dashboard', {path: '/'});
   this.route('login');
   this.route('users');
+  this.route('clients');
 });
 
 export default Router;
