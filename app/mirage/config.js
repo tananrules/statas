@@ -98,6 +98,30 @@ export default function() {
   });
 
 
+  this.get('/api/offers', function() {
+    return {
+          offers: [
+            {
+              id: 1,
+              name: "Atari",
+              description: "I Love Strawberries",
+              icon: "youtube-play",
+              amount: "12,000,000",
+              time_remaining: "05 12 45"
+            },
+            {
+              id: 2,
+              name: "Apple",
+              description: "itunes fest",
+              icon: 'music',
+              amount: "10,000,000",
+              time_remaining: "02 05 32"
+            }
+          ]
+        };
+  });
+
+
 }
 
 /*

@@ -33,7 +33,7 @@
         </tr>
       </thead>
       <tbody>
-        {{#each model.offers as |offer|}}
+        {{#each model as |offer|}}
         <tr>
           <td>{{fa-icon offer.icon size=2}}</td>
           <td>{{offer.name}}
@@ -44,7 +44,7 @@
             <div class="font-small">days hour min</div> 
           </td>
           {{#if showActions}}
-          <td>{{fa-icon 'check'}}  {{fa-icon 'eye'}}</td>
+          <td>{{fa-icon 'check'}} &nbsp; {{fa-icon 'eye'}}</td>
           {{/if}}
         </tr>
         {{/each}}
