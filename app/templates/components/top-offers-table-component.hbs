@@ -1,0 +1,54 @@
+<div class="ibox float-e-margins">
+  <div class="ibox-title">
+    <h5>Top Offers</h5>
+    <div class="ibox-tools">
+      <a class="collapse-link">
+      <i class="fa fa-chevron-up"></i>
+      </a>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      <i class="fa fa-wrench"></i>
+      </a>
+      <ul class="dropdown-menu dropdown-user">
+        <li><a href="#">Config option 1</a>
+        </li>
+        <li><a href="#">Config option 2</a>
+        </li>
+      </ul>
+      <a class="close-link">
+      <i class="fa fa-times"></i>
+      </a>
+    </div>
+  </div>
+  <div class="ibox-content">
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Offers</th>
+          <th>Added</th>
+          {{#if showActions}}
+          <th>Actions</th>
+          {{/if}}
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model.offers as |offer|}}
+        <tr>
+          <td>{{fa-icon offer.icon size=2}}</td>
+          <td>{{offer.name}}
+            <div>{{offer.description}}</div>
+          </td>
+          <td>{{offer.amount}}</td>
+          <td class="font-medium">{{offer.time_remaining}}
+            <div class="font-small">days hour min</div> 
+          </td>
+          {{#if showActions}}
+          <td>{{fa-icon 'check'}}  {{fa-icon 'eye'}}</td>
+          {{/if}}
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
