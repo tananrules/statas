@@ -86,7 +86,7 @@ export default function() {
 
   this.post('/token', function(db, request){
     var params = formEncodedToJson(request.requestBody);
-    if(params.username === "lucas@statas.com" && params.password === "lucas123") {
+    if(params.username === "lucas@statas.co" && params.password === "lucas123") {
       return {
         "access_token":"PA$$WORD",
         "token_type":"bearer"
