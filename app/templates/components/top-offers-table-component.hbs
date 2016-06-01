@@ -1,13 +1,13 @@
 <div class="ibox float-e-margins">
   <div class="ibox-title">
-    <h5>Top Offers</h5>
+    <h5>{{title}}</h5>
   </div>
   <div class="ibox-content">
     <table class="table">
       <thead>
         <tr>
-          <th></th>
-          <th>Name</th>
+          <th></th
+>          <th>Name</th>
           <th>Offers</th>
           <th>Added</th>
           {{#if showActions}}
@@ -27,7 +27,7 @@
             <div class="font-small">days hour min</div> 
           </td>
           {{#if showActions}}
-          <td>{{fa-icon 'check'}} &nbsp; {{fa-icon 'eye'}}</td>
+          <td>{{fa-icon 'edit'}}</td>
           {{/if}}
         </tr>
         {{/each}}
