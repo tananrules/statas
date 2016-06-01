@@ -15,7 +15,7 @@
   </div>
   <div class="col-lg-3">
     <div class="title-action">
-      <button type="button" class="btn btn-w-m btn-primary pull-right">Add Offer<span class="right">{{fa-icon 'angle-right'}}</span></button>
+      <button type="button" class="btn btn-w-m btn-primary pull-right" data-toggle="modal" data-target="#addOfferModal">Add Offer<span class="right">{{fa-icon 'angle-right'}}</span></button>
     </div>
   </div>
 </div>
@@ -44,3 +44,49 @@
 </div>
 
 {{outlet}}
+
+<div class="modal inmodal fade" id="addOfferModal" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <form role="form" {{action 'createNewOffer' on='submit'}}>
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h5 class="modal-title">ADD NEW OFFER</h5>
+        {{!-- <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small> --}}
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-6 b-r">
+            <div class="form-group"><label>Offer Name<span class="required"> *</span></label> 
+              {{input class="form-control" value=form.offerName required="true"}}
+            </div>
+            <div class="form-group"><label>Description<span class="required"> *</span></label> 
+              {{textarea class="form-control" value=form.description required="true" rows=4}}
+            </div>
+            <div class="form-group"><label>Targeting<span class="required"> *</span></label>
+              <br/><br/>
+              <div class="btn-group">
+                <button class="btn {{if (eq selectedTargeting 'all') 'btn-primary' 'btn-white'}}" type="button" {{action 'offerTarget' 'all'}}>All</button>
+                <button class="btn {{if (eq selectedTargeting 'male') 'btn-primary' 'btn-white'}}" type="button" {{action 'offerTarget' 'male'}}>Male</button>
+                <button class="btn {{if (eq selectedTargeting 'female') 'btn-primary' 'btn-white'}}" type="button" {{action 'offerTarget' 'female'}}>Female</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group"><label>Location Targeting<span class="required"> *</span></label> 
+              {{textarea class="form-control" required="true"}}
+            </div>
+            <div class="form-group"><label>Interests<span class="required"> *</span></label> 
+              {{textarea class="form-control" required="true"}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" type="submit">Save changes</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
