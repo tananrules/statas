@@ -15,7 +15,7 @@
   </div>
   <div class="col-lg-3">
     <div class="title-action">
-      <button type="button" class="btn btn-w-m btn-primary pull-right">Add Campaign<span class="right">{{fa-icon 'angle-right'}}</span></button>
+      <button type="button" class="btn btn-w-m btn-primary pull-right" data-toggle="modal" data-target="#addCampaignModal">Add Campaign<span class="right">{{fa-icon 'angle-right'}}</span></button>
     </div>
   </div>
 </div>
@@ -45,3 +45,45 @@
 
 
 {{outlet}}
+
+
+<div class="modal inmodal fade" id="addCampaignModal" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-dialog">
+    <form role="form" {{action 'createNewCampaign' on='submit'}}>
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h5 class="modal-title">ADD NEW CAMPAIGN</h5>
+        {{!-- <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small> --}}
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group"><label>Campaign Name<span class="required"> *</span></label> 
+              {{input class="form-control" value=form.campaignName required="true"}}
+            </div>
+            <div class="form-group"><label>Campaign Type<span class="required"> *</span></label> 
+              {{#x-select value=selectedCampaignType action="selectCampaignType" class="form-control m-b"}}
+                {{#x-option value='post'}}Promote Post{{/x-option}}
+                {{#x-option value='video'}}Promote Video{{/x-option}}
+                {{#x-option value='account'}}Promote Account{{/x-option}}
+                {{#x-option value='website'}}Promote Website{{/x-option}}
+              {{/x-select}}
+            </div>
+            <div class="form-group"><label>Budget<span class="required"> *</span></label> 
+              {{input class="form-control" value=form.budget required="true" placeholder='$'}}
+            </div>
+            <div class="form-group"><label>Description<span class="required"> *</span></label> 
+              {{textarea class="form-control" value=form.description required="true" rows=4}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" type="submit">Save changes</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
