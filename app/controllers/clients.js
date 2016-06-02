@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
     createNewClient() {
       this.set('form.type', 'advertiser');
       this.store.createRecord('user', this.get('form'));
-      this.toast.success('Client Created Scuuessfully!')
+      this.toast.success('Client Created Successfully!');
       Ember.$('#addClientModal').modal('hide');
     },
     selectState() {
