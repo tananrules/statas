@@ -1,7 +1,11 @@
 import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
+import { hasMany } from 'ember-data/relationships';
 
 export default Model.extend({
   name: attr('string'),
-  type: attr('string')
+  type: attr('string'),
+  budget: attr('number'),
+  description: attr('string'),
+  offers: hasMany('offer')
 });
