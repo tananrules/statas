@@ -12,5 +12,5 @@ export default Model.extend({
   contactFirstName: attr('string'),
   contactLastName: attr('string'),
   contactEmail: attr('string'),
-  contachPhone: attr('string')
+  contactPhone: attr('string')
 });
