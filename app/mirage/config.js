@@ -98,6 +98,28 @@ export default function() {
   });
 
 
+  this.get('/api/campaigns', function() {
+    return {
+          campaigns: [
+            {
+              id: 1,
+              name: "Atari Campaign",
+              description: "I Love Strawberries",
+              icon: "youtube-play",
+              budget: "12,000,000",
+              added: "2016-06-02T17:01:29.924Z"
+            },
+            {
+              id: 2,
+              name: "Apple Campaign",
+              description: "itunes fest",
+              icon: 'music',
+              budget: "10,000,000",
+              added: "2016-06-02T17:01:29.924Z"            }
+          ]
+        };
+  });
+
   this.get('/api/offers', function() {
     return {
           offers: [

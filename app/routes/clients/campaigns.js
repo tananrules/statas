@@ -5,6 +5,6 @@ export default Ember.Route.extend({
     this.render('clients.campaigns', { into: 'application' });
   },
   model() {
-    return this.store.findAll('offer');
+    return this.store.findAll('campaign');
   }
 });
