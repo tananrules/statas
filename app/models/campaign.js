@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
 import { hasMany } from 'ember-data/relationships';
@@ -24,14 +25,14 @@ export default Model.extend({
     // calculate (and subtract) whole hours
     let hours = Math.floor(delta / 3600) % 24;
     if (hours.toString().length === 1) {
-      hours = `0${hours}`
+      hours = `0${hours}`;
     }
     delta -= hours * 3600;
 
     // calculate (and subtract) whole minutes
     let minutes = Math.floor(delta / 60) % 60;
     if (minutes.toString().length === 1) {
-      minutes = `0${minutes}`
+      minutes = `0${minutes}`;
     }
     delta -= minutes * 60;
     
