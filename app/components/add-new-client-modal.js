@@ -7,6 +7,9 @@ export default Ember.Component.extend({
       this.store.createRecord('user', this.get('form'));
       this.toast.success('Client Created Successfully!');
       Ember.$('#addClientModal').modal('hide');
+      Ember.run.later((function() {
+        Ember.$('#addCampaignModal').modal('show');
+      }), 1500);
     },
     selectState() {
 

@@ -10,6 +10,9 @@ export default Ember.Component.extend({
       this.store.createRecord('campaign', this.get('form'));
       this.toast.success('Campaign Created Successfully!');
       Ember.$('#addCampaignModal').modal('hide');
+      Ember.run.later((function() {
+        Ember.$('#addOfferModal').modal('show');
+      }), 1500);
     },
     selectCampaignType(selection) {
       this.set('selectedCampaignType', selection);
