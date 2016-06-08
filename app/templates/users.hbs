@@ -2,17 +2,29 @@
   <div class="col-lg-12">
     <div class="wrapper wrapper-content">
       <div class="row">
-        <div class="col-lg-12 text-center">
-          <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default {{if (eq activeFilter 'all') 'active'}}" {{action 'filterUsers' 'all'}}>All</button>
-            <button type="button" class="btn btn-default {{if (eq activeFilter 'im') 'active'}}" {{action 'filterUsers' 'im'}}>Influence Manager</button>
-            <button type="button" class="btn btn-default {{if (eq activeFilter 'am') 'active'}}" {{action 'filterUsers' 'am'}}>Account Manager</button>
-            <button type="button" class="btn btn-default {{if (eq activeFilter 'ad') 'active'}}" {{action 'filterUsers' 'ad'}}>Account Director</button>
-            <button type="button" class="btn btn-default {{if (eq activeFilter 'aa') 'active'}}" {{action 'filterUsers' 'aa'}}>Account Analysis</button>
-            <button type="button" class="btn btn-default {{if (eq activeFilter 'id') 'active'}}" {{action 'filterUsers' 'id'}}>Influence Director</button>
-            <button type="button" class="btn btn-default {{if (eq activeFilter 'et') 'active'}}" {{action 'filterUsers' 'et'}}>Executive Team</button>
-            <button type="button" class="btn btn-default {{if (eq activeFilter 'sa') 'active'}}" {{action 'filterUsers' 'sa'}}>Super Admin</button>
+        {{!-- <div class="col-lg-12 text-center">
+          <div class="btn-group">
+            <button type="button" class="btn {{if (eq activeFilter 'all') 'btn-primary' 'btn-white'}}" {{action 'filterUsers' 'all'}}>All</button>
+            <button type="button" class="btn {{if (eq activeFilter 'im') 'btn-primary' 'btn-white'}}" {{action 'filterUsers' 'im'}}>Influence Manager</button>
+            <button type="button" class="btn {{if (eq activeFilter 'am') 'btn-primary' 'btn-white'}}" {{action 'filterUsers' 'am'}}>Account Manager</button>
+            <button type="button" class="btn {{if (eq activeFilter 'ad') 'btn-primary' 'btn-white'}}" {{action 'filterUsers' 'ad'}}>Account Director</button>
+            <button type="button" class="btn {{if (eq activeFilter 'aa') 'btn-primary' 'btn-white'}}" {{action 'filterUsers' 'aa'}}>Account Analysis</button>
+            <button type="button" class="btn {{if (eq activeFilter 'id') 'btn-primary' 'btn-white'}}" {{action 'filterUsers' 'id'}}>Influence Director</button>
+            <button type="button" class="btn {{if (eq activeFilter 'et') 'btn-primary' 'btn-white'}}" {{action 'filterUsers' 'et'}}>Executive Team</button>
+            <button type="button" class="btn {{if (eq activeFilter 'sa') 'btn-primary' 'btn-white'}}" {{action 'filterUsers' 'sa'}}>Super Admin</button>
           </div>
+        </div> --}}
+        <div class="col-lg-3">
+          {{#x-select value=activeFilter action="filterUsers" class="form-control m-b"}}
+            {{#x-option value='all'}}All Users{{/x-option}}
+            {{#x-option value='im'}}Influence Manager{{/x-option}}
+            {{#x-option value='am'}}Account Manager{{/x-option}}
+            {{#x-option value='ad'}}Account Director{{/x-option}}
+            {{#x-option value='aa'}}Account Analyst{{/x-option}}
+            {{#x-option value='id'}}Influence Director{{/x-option}}
+            {{#x-option value='et'}}Executive Team{{/x-option}}
+            {{#x-option value='sa'}}Super Admin{{/x-option}}
+          {{/x-select}}
         </div>
           <br/><br/><br/>
         <div class="col-lg-12">
