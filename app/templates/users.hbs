@@ -87,6 +87,7 @@
               </div>
               <div class="form-group"><label>User Access <span class="required"> *</span></label> 
                 {{#x-select value=selectedUserAccess action="selectUserAccess" class="form-control m-b"}}
+                  <option value="" disabled="true" selected="true">Select Access</option>
                   {{#x-option value='im'}}Influence Manager{{/x-option}}
                   {{#x-option value='am'}}Account Manager{{/x-option}}
                   {{#x-option value='aa'}}Account Analysis{{/x-option}}
@@ -97,6 +98,7 @@
               </div>
               <div class="form-group"><label>Team <span class="required"> *</span></label> 
                 {{#x-select value=selectedTeam action="selectTeam" class="form-control m-b"}}
+                  <option value="" disabled="true" selected="true">Select Team</option>
                   {{#x-option value='ad'}}Account Director{{/x-option}}
                   {{#x-option value='id'}}Influence Director{{/x-option}}
                 {{/x-select}}
