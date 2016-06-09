@@ -26,6 +26,12 @@
             </div>
           </div>
           <div class="col-sm-6">
+            <div class="form-group"><label>Image<span class="required"> *</span></label> 
+              {{image-drop image=offerImage
+                placeholder="Offer Image"
+                helpText="Drop your image here, or click to select"
+              }}
+            </div>
             <div class="form-group"><label>Location Targeting<span class="required"> *</span></label> 
               {{textarea class="form-control" required="true"}}
             </div>
