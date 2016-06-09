@@ -3,6 +3,7 @@ import attr from 'ember-data/attr';
 
 export default Model.extend({
   name: attr('string'),
+  email: attr('string'),
   type: attr('string'),
   address: attr('string'),
   suite: attr('string'),
