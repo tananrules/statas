@@ -13,7 +13,6 @@ export default Ember.Controller.extend({
 
   actions: {
     filterUsers(type) {
-      debugger
       this.set('activeFilter', type);
     },
 
