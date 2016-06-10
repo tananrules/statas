@@ -1,17 +1,15 @@
+import Ember from 'ember';
 import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
 
 export default Model.extend({
-  name: attr('string'),
+  firstName: attr('string'),
+  lastName: attr('string'),
   email: attr('string'),
-  type: attr('string'),
-  address: attr('string'),
-  suite: attr('string'),
-  city: attr('string'),
-  state: attr('string'),
-  zipCode: attr('string'),
-  contactFirstName: attr('string'),
-  contactLastName: attr('string'),
-  contactEmail: attr('string'),
-  contactPhone: attr('string')
+  userAccess: attr('string'),
+  team: attr('string'),
+  status: attr('string'),
+  fullName: Ember.computed('firstName', 'lastName', function() {
+    return `this.get('firstName') this.get('lastName')`;
+  })
 });

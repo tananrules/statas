@@ -31,29 +31,48 @@
           <div class="ibox float-e-margins">
             <div class="ibox-title">
               <h5>Current Users</h5>
-              <button type="button" class="btn btn-w-m btn-primary pull-right" data-toggle="modal" data-target="#addUserModal">Add User</button>
+              <button type="button" class="btn btn-w-m btn-primary pull-right" data-toggle="modal" data-target="#addUserModal">Add User<span class="right">{{fa-icon 'angle-right'}}</span></button>
             </div>
             <div class="ibox-content">
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Designation</th>
-                    <th>Active Rev</th>
-                    <th>LTE</th>
-                    <th>RP</th>
+                    <th width="6%">#</th>
+                    <th width="12%">Name</th>
+                    <th width="12%">Action</th>
+                    <th width="10%">Designation</th>
+                    <th width="15%">Info</th>
+                    <th width="15%">Active Rev</th>
+                    <th width="15%">LTE</th>
+                    <th width="15%">RP</th>
                   </tr>
                 </thead>
                 <tbody>
                   {{#each model as |user index|}}
                   <tr>
                     <td>{{addOne index}}</td>
-                    <td>{{user.name}}</td>
-                    <td>{{user.type}}</td>
-                    <td>{{user.active_rev}}</td>
-                    <td>{{user.lte}}</td>
-                    <td>{{user.rp}}</td>
+                    <td>{{user.fullname}}</td>
+                    <td>
+                      {{#x-select value=user.status action="updateStatus" class="form-control m-b"}}
+                        {{#x-option value='active'}}Active{{/x-option}}
+                        {{#x-option value='suspend'}}Suspend{{/x-option}}
+                        {{#x-option value='deactive'}}Deactive{{/x-option}}
+                      {{/x-select}}
+                    </td>
+                    <td>
+                      {{#x-select value=user.userAccess action="updateUserAccess" class="form-control m-b"}}
+                        {{#x-option value='IM'}}IM{{/x-option}}
+                        {{#x-option value='AM'}}AM{{/x-option}}
+                        {{#x-option value='AA'}}AA{{/x-option}}
+                        {{#x-option value='AD'}}AD{{/x-option}}
+                        {{#x-option value='ET'}}ET{{/x-option}}
+                        {{#x-option value='SA'}}SA{{/x-option}}
+                      {{/x-select}}
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                   </tr>
                   {{/each}}
                 </tbody>
@@ -88,19 +107,19 @@
               <div class="form-group"><label>User Access <span class="required"> *</span></label> 
                 {{#x-select value=selectedUserAccess action="selectUserAccess" class="form-control m-b"}}
                   <option value="" disabled="true" selected="true">Select Access</option>
-                  {{#x-option value='im'}}Influence Manager{{/x-option}}
-                  {{#x-option value='am'}}Account Manager{{/x-option}}
-                  {{#x-option value='aa'}}Account Analysis{{/x-option}}
-                  {{#x-option value='ad'}}Account Director{{/x-option}}
-                  {{#x-option value='et'}}Exclusive Team{{/x-option}}
-                  {{#x-option value='sa'}}Super Admin{{/x-option}}
+                  {{#x-option value='IM'}}Influence Manager{{/x-option}}
+                  {{#x-option value='AM'}}Account Manager{{/x-option}}
+                  {{#x-option value='AA'}}Account Analysis{{/x-option}}
+                  {{#x-option value='AD'}}Account Director{{/x-option}}
+                  {{#x-option value='ET'}}Exclusive Team{{/x-option}}
+                  {{#x-option value='SA'}}Super Admin{{/x-option}}
                 {{/x-select}}
               </div>
-              <div class="form-group"><label>Team <span class="required"> *</span></label> 
+              <div class="form-group"><label>Team</label> 
                 {{#x-select value=selectedTeam action="selectTeam" class="form-control m-b"}}
                   <option value="" disabled="true" selected="true">Select Team</option>
-                  {{#x-option value='ad'}}Account Director{{/x-option}}
-                  {{#x-option value='id'}}Influence Director{{/x-option}}
+                  {{#x-option value='AD'}}Account Director{{/x-option}}
+                  {{#x-option value='ID'}}Influence Director{{/x-option}}
                 {{/x-select}}
               </div>
               <div class="form-group"><label>Email <span class="required"> *</span></label> 

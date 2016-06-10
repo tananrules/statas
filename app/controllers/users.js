@@ -15,17 +15,27 @@ export default Ember.Controller.extend({
     filterUsers(type) {
       this.set('activeFilter', type);
     },
-
-    createNewUser() {
-
-    },
-
     selectUserAccess(userAccess) {
-      this.set('selectUserAccess', userAccess);
+      this.set('selectedUserAccess', userAccess);
     },
-
     selectTeam(team) {
       this.set('selectedTeam', team);
+    },
+    createNewUser() {
+      this.set('form.status', 'active');
+      this.set('form.team', this.get('selectedTeam'));
+      this.set('form.userAccess', this.get('selectedUserAccess'));
+      this.store.createRecord('user', this.get('form')).save().then(() => {
+        this.set('form', {});
+        this.toast.success('User Created Successfully!');
+        Ember.$('#addUserModal').modal('hide');
+      });
+    },
+    updateStatus(status) {
+
+    },
+    updateUserAccess(userAccess) {
+
     }
   }
 });
