@@ -53,20 +53,20 @@
                     <td>{{addOne index}}</td>
                     <td>{{user.name}}</td>
                     <td>
-                      {{#x-select value=user.status action="updateStatus" class="form-control m-b input-sm imput-sm-padding"}}
-                        {{#x-option value='active'}}Active{{/x-option}}
-                        {{#x-option value='suspend'}}Suspend{{/x-option}}
-                        {{#x-option value='deactive'}}Deactive{{/x-option}}
+                      {{#x-select value=user.status action="updateStatus" class="form-control m-b input-sm imput-sm-padding" as |xs| }}
+                        {{#xs.option value='active'}}Active{{/xs.option}}
+                        {{#xs.option value='suspend'}}Suspend{{/xs.option}}
+                        {{#xs.option value='deactive'}}Deactive{{/xs.option}}
                       {{/x-select}}
                     </td>
                     <td>
-                      {{#x-select value=user.userAccess action="updateUserAccess" class="form-control m-b input-sm imput-sm-padding"}}
-                        {{#x-option value='IM'}}IM{{/x-option}}
-                        {{#x-option value='AM'}}AM{{/x-option}}
-                        {{#x-option value='AA'}}AA{{/x-option}}
-                        {{#x-option value='AD'}}AD{{/x-option}}
-                        {{#x-option value='ET'}}ET{{/x-option}}
-                        {{#x-option value='SA'}}SA{{/x-option}}
+                      {{#x-select value=user.userAccess onchange=(action "updateUserAccess" user) class="form-control m-b input-sm imput-sm-padding" as |xs|}}
+                        {{#xs.option value='IM'}}IM{{/xs.option}}
+                        {{#xs.option value='AM'}}AM{{/xs.option}}
+                        {{#xs.option value='AA'}}AA{{/xs.option}}
+                        {{#xs.option value='AD'}}AD{{/xs.option}}
+                        {{#xs.option value='ET'}}ET{{/xs.option}}
+                        {{#xs.option value='SA'}}SA{{/xs.option}}
                       {{/x-select}}
                     </td>
                     <td></td>

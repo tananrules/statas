@@ -38,8 +38,13 @@ export default Ember.Controller.extend({
     updateStatus(status) {
 
     },
-    updateUserAccess(userAccess) {
-
+    updateUserAccess(user, component, userAccess) {
+      this.store.find('user', user.get('id')).then((result) => {
+        result.set('userAccess', userAccess);
+        result.save().then(() => {
+          this.toast.success('User Access Changed!');
+        });
+      });
     }
   }
 });
