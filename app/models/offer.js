@@ -8,5 +8,7 @@ export default Model.extend({
   icon: attr('string'),
   amount: attr('string'),
   time_remaining: attr('string'),
-  campaign: belongsTo('campaign')
+  
+  campaign: belongsTo('campaign'),
+  advertiser: belongsTo('advertiser'),
 });

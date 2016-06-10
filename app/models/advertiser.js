@@ -1,5 +1,6 @@
 import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
+import { hasMany } from 'ember-data/relationships';
 
 export default Model.extend({
   name: attr('string'),
@@ -14,5 +15,8 @@ export default Model.extend({
   country: attr('string'),
   zip: attr('string'),
   active: attr('boolean'),
-  budget: attr('number')
+  budget: attr('number'),
+
+  campaigns: hasMany('campaign'),
+  offers: hasMany('offer')
 });
