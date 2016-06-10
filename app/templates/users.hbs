@@ -41,7 +41,7 @@
                     <th width="12%">Name</th>
                     <th width="12%">Action</th>
                     <th width="10%">Designation</th>
-                    <th width="15%">Info</th>
+                    <th width="15%">Statistics</th>
                     <th width="15%">Active Rev</th>
                     <th width="15%">LTE</th>
                     <th width="15%">RP</th>
@@ -51,16 +51,16 @@
                   {{#each model as |user index|}}
                   <tr>
                     <td>{{addOne index}}</td>
-                    <td>{{user.fullname}}</td>
+                    <td>{{user.name}}</td>
                     <td>
-                      {{#x-select value=user.status action="updateStatus" class="form-control m-b"}}
+                      {{#x-select value=user.status action="updateStatus" class="form-control m-b input-sm imput-sm-padding"}}
                         {{#x-option value='active'}}Active{{/x-option}}
                         {{#x-option value='suspend'}}Suspend{{/x-option}}
                         {{#x-option value='deactive'}}Deactive{{/x-option}}
                       {{/x-select}}
                     </td>
                     <td>
-                      {{#x-select value=user.userAccess action="updateUserAccess" class="form-control m-b"}}
+                      {{#x-select value=user.userAccess action="updateUserAccess" class="form-control m-b input-sm imput-sm-padding"}}
                         {{#x-option value='IM'}}IM{{/x-option}}
                         {{#x-option value='AM'}}AM{{/x-option}}
                         {{#x-option value='AA'}}AA{{/x-option}}
@@ -99,10 +99,10 @@
             <p>Create new user for Statas</p>
             <form role="form" {{action 'createNewUser' on='submit'}}>
               <div class="form-group"><label>First Name<span class="required"> *</span></label> 
-                {{input class="form-control" value=form.firstName  required="true"}}
+                {{input class="form-control" value=firstName  required="true"}}
               </div>
               <div class="form-group"><label>Last Name <span class="required"> *</span></label> 
-                {{input class="form-control" value=form.lastName  required="true"}}
+                {{input class="form-control" value=lastName  required="true"}}
               </div>
               <div class="form-group"><label>User Access <span class="required"> *</span></label> 
                 {{#x-select value=selectedUserAccess action="selectUserAccess" class="form-control m-b"}}

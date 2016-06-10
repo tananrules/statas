@@ -24,12 +24,12 @@ module.exports = function(environment) {
   };
 
   ENV.contentSecurityPolicy = {
-    'default-src': "'none'",
+    'default-src': "'self'",
     'script-src': ["'self'", "https://cdn.mxpnl.com"],
     'font-src': ["'self'", "http://fonts.gstatic.com"],
     'connect-src': ["'self'", "https://glowing-willow-125918.appspot.com/"],
-    'img-src': ["'self', https://media.licdn.com/, data:"],
-    'style-src': ["'self'", "'unsafe-inline'", "http://fonts.googleapis.com"],
+    'img-src': ["'self'", "https://media.licdn.com/", "data:"],
+    'style-src': ["'self'", "'unsafe-inline'", "http://fonts.googleapis.com/", "https://fonts.googleapis.com/"],
     'media-src': null
   }
 

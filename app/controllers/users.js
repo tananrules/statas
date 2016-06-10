@@ -1,15 +1,18 @@
 import Ember from 'ember';
 
-// const {
-//   computed,
-//   observer
-// } = Ember;
+const {
+  computed
+} = Ember;
 
 export default Ember.Controller.extend({
   activeFilter: 'all',
   form: {},
   selectedUserAccess: null,
   selectedTeam: null,
+
+  fullName: computed('firstName', 'lastName', function() {
+    return `${this.get('firstName')} ${this.get('lastName')}`;
+  }),
 
   actions: {
     filterUsers(type) {
@@ -23,6 +26,7 @@ export default Ember.Controller.extend({
     },
     createNewUser() {
       this.set('form.status', 'active');
+      this.set('form.name', this.get('fullName'));
       this.set('form.team', this.get('selectedTeam'));
       this.set('form.userAccess', this.get('selectedUserAccess'));
       this.store.createRecord('user', this.get('form')).save().then(() => {
