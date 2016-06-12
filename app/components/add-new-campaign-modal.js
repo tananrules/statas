@@ -1,7 +1,14 @@
 import Ember from 'ember';
 
+const {
+  computed
+} = Ember;
+
 export default Ember.Component.extend({
   selectedCampaignType: "",
+  clients: computed(function() {
+    return this.store.peekAll('advertiser');
+  }),
 
   actions: {
     createNewCampaign() {

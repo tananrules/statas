@@ -10,6 +10,8 @@ export default Model.extend({
   budget: attr('number'),
   budgetLeft: attr('number'),
   description: attr('string'),
+  startsAt: attr("string"),
+  endsAt: attr("string"),
   createdAt: attr('date', {
     defaultValue() { return new Date(); }
   }),
