@@ -35,14 +35,19 @@ export default Ember.Controller.extend({
         Ember.$('#addUserModal').modal('hide');
       });
     },
-    updateStatus(status) {
-
+    updateStatus(user, component, status) {
+      this.store.find('user', user.get('id')).then((result) => {
+        result.set('status', status);
+        result.save().then(() => {
+          this.toast.success(`${user.get('name')} changed to ${status}`);
+        });
+      });
     },
     updateUserAccess(user, component, userAccess) {
       this.store.find('user', user.get('id')).then((result) => {
         result.set('userAccess', userAccess);
         result.save().then(() => {
-          this.toast.success('User Access Changed!');
+          this.toast.success(`${user.get('name')} changed to ${userAccess}`);
         });
       });
     }

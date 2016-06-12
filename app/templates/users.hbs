@@ -53,7 +53,7 @@
                     <td>{{addOne index}}</td>
                     <td>{{user.name}}</td>
                     <td>
-                      {{#x-select value=user.status action="updateStatus" class="form-control m-b input-sm imput-sm-padding" as |xs| }}
+                      {{#x-select value=user.status onchange=(action "updateStatus" user) class="form-control m-b input-sm imput-sm-padding" as |xs| }}
                         {{#xs.option value='active'}}Active{{/xs.option}}
                         {{#xs.option value='suspend'}}Suspend{{/xs.option}}
                         {{#xs.option value='deactive'}}Deactive{{/xs.option}}

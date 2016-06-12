@@ -259,7 +259,7 @@ export default Ember.Component.extend({
       this.set('selectedState', selection);
     },
     selectActiveState(selection) {
-      this.set('selectedActiveState', selection)
+      this.set('selectedActiveState', selection);
     }
   }
 });
