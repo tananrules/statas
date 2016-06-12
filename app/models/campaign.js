@@ -8,8 +8,11 @@ export default Model.extend({
   name: attr('string'),
   type: attr('string'),
   budget: attr('number'),
+  budgetLeft: attr('number'),
   description: attr('string'),
-  added: attr('date'),
+  createdAt: attr('date', {
+    defaultValue() { return new Date(); }
+  }),
 
   advertiser: belongsTo('advertiser'),
   offers: hasMany('offer'),

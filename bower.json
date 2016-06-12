@@ -11,6 +11,7 @@
     "pretender": "~0.10.1",
     "lodash": "~3.7.0",
     "Faker": "~3.0.0",
-    "toastr": "^2.1.2"
+    "toastr": "^2.1.2",
+    "selectize": "miguelcobain/selectize.js#master"
   }
 }
