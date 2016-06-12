@@ -16,70 +16,74 @@
         </div> --}}
         <div class="col-lg-3">
           {{#x-select value=activeFilter action="filterUsers" class="form-control m-b"}}
-            {{#x-option value='all'}}All Users{{/x-option}}
-            {{#x-option value='im'}}Influence Manager{{/x-option}}
-            {{#x-option value='am'}}Account Manager{{/x-option}}
-            {{#x-option value='ad'}}Account Director{{/x-option}}
-            {{#x-option value='aa'}}Account Analyst{{/x-option}}
-            {{#x-option value='id'}}Influence Director{{/x-option}}
-            {{#x-option value='et'}}Executive Team{{/x-option}}
-            {{#x-option value='sa'}}Super Admin{{/x-option}}
+            {{#x-option value='ALL'}}All Users{{/x-option}}
+            {{#x-option value='IM'}}Influence Manager{{/x-option}}
+            {{#x-option value='AM'}}Account Manager{{/x-option}}
+            {{#x-option value='AD'}}Account Director{{/x-option}}
+            {{#x-option value='AA'}}Account Analyst{{/x-option}}
+            {{#x-option value='ID'}}Influence Director{{/x-option}}
+            {{#x-option value='ET'}}Executive Team{{/x-option}}
+            {{#x-option value='SA'}}Super Admin{{/x-option}}
           {{/x-select}}
         </div>
           <br/><br/><br/>
-        <div class="col-lg-12">
-          <div class="ibox float-e-margins">
-            <div class="ibox-title">
-              <h5>Current Users</h5>
-              <button type="button" class="btn btn-w-m btn-primary pull-right" data-toggle="modal" data-target="#addUserModal">Add User<span class="right">{{fa-icon 'angle-right'}}</span></button>
-            </div>
-            <div class="ibox-content">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th width="6%">#</th>
-                    <th width="12%">Name</th>
-                    <th width="12%">Action</th>
-                    <th width="10%">Designation</th>
-                    <th width="15%">Statistics</th>
-                    <th width="15%">Active Rev</th>
-                    <th width="15%">LTE</th>
-                    <th width="15%">RP</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {{#each model as |user index|}}
-                  <tr>
-                    <td>{{addOne index}}</td>
-                    <td>{{user.name}}</td>
-                    <td>
-                      {{#x-select value=user.status onchange=(action "updateStatus" user) class="form-control m-b input-sm imput-sm-padding" as |xs| }}
-                        {{#xs.option value='active'}}Active{{/xs.option}}
-                        {{#xs.option value='suspend'}}Suspend{{/xs.option}}
-                        {{#xs.option value='deactive'}}Deactive{{/xs.option}}
-                      {{/x-select}}
-                    </td>
-                    <td>
-                      {{#x-select value=user.userAccess onchange=(action "updateUserAccess" user) class="form-control m-b input-sm imput-sm-padding" as |xs|}}
-                        {{#xs.option value='IM'}}IM{{/xs.option}}
-                        {{#xs.option value='AM'}}AM{{/xs.option}}
-                        {{#xs.option value='AA'}}AA{{/xs.option}}
-                        {{#xs.option value='AD'}}AD{{/xs.option}}
-                        {{#xs.option value='ET'}}ET{{/xs.option}}
-                        {{#xs.option value='SA'}}SA{{/xs.option}}
-                      {{/x-select}}
-                    </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  {{/each}}
-                </tbody>
-              </table>
-            </div>
-          </div>    
-        </div>
+        {{#if (eq model.length 0)}}
+          {{partial 'no-content'}}
+        {{else}}
+          <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                <h5>Current Users</h5>
+                <button type="button" class="btn btn-w-m btn-primary pull-right" data-toggle="modal" data-target="#addUserModal">Add User<span class="right">{{fa-icon 'angle-right'}}</span></button>
+              </div>
+              <div class="ibox-content">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th width="6%">#</th>
+                      <th width="12%">Name</th>
+                      <th width="12%">Action</th>
+                      <th width="10%">Designation</th>
+                      <th width="15%">Statistics</th>
+                      <th width="15%">Active Rev</th>
+                      <th width="15%">LTE</th>
+                      <th width="15%">RP</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {{#each model as |user index|}}
+                    <tr>
+                      <td>{{addOne index}}</td>
+                      <td>{{user.name}}</td>
+                      <td>
+                        {{#x-select value=user.status onchange=(action "updateStatus" user) class="form-control m-b input-sm imput-sm-padding" as |xs| }}
+                          {{#xs.option value='active'}}Active{{/xs.option}}
+                          {{#xs.option value='suspend'}}Suspend{{/xs.option}}
+                          {{#xs.option value='deactive'}}Deactive{{/xs.option}}
+                        {{/x-select}}
+                      </td>
+                      <td>
+                        {{#x-select value=user.userAccess onchange=(action "updateUserAccess" user) class="form-control m-b input-sm imput-sm-padding" as |xs|}}
+                          {{#xs.option value='IM'}}IM{{/xs.option}}
+                          {{#xs.option value='AM'}}AM{{/xs.option}}
+                          {{#xs.option value='AA'}}AA{{/xs.option}}
+                          {{#xs.option value='AD'}}AD{{/xs.option}}
+                          {{#xs.option value='ET'}}ET{{/xs.option}}
+                          {{#xs.option value='SA'}}SA{{/xs.option}}
+                        {{/x-select}}
+                      </td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+              </div>
+            </div>    
+          </div>
+        {{/if}}
       </div>
     </div>
   </div>

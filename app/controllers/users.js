@@ -16,7 +16,14 @@ export default Ember.Controller.extend({
 
   actions: {
     filterUsers(type) {
-      this.set('activeFilter', type);
+      if(type === 'ALL') {
+        this.set('model', this.store.peekAll('user'));
+      } else {
+        this.set('activeFilter', type);
+        let users = this.store.peekAll('user');
+        let filtered = users.filterBy('userAccess', type);
+        this.set('model', filtered);
+      }
     },
     selectUserAccess(userAccess) {
       this.set('selectedUserAccess', userAccess);
