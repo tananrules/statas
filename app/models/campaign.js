@@ -8,19 +8,20 @@ export default Model.extend({
   name: attr('string'),
   type: attr('string'),
   budget: attr('number'),
-  budgetLeft: attr('number'),
+  // budgetLeft: attr('number'),
   description: attr('string'),
   startsAt: attr("string"),
   endsAt: attr("string"),
+  advertiserId: attr('string'),
   createdAt: attr('date', {
     defaultValue() { return new Date(); }
   }),
 
-  advertiser: belongsTo('advertiser'),
+  // advertiser: belongsTo('advertiser'),
   offers: hasMany('offer'),
   
-  timeRemaining: Ember.computed('added', function() {    
-    let  delta = Math.abs(Date.now() - Date.parse(this.get('added'))) / 1000;
+  timeRemaining: Ember.computed('createdAt', function() {    
+    let  delta = Math.abs(Date.now() - Date.parse(this.get('createdAt'))) / 1000;
     let days = Math.floor(delta / 86400);
     if (days.toString().length === 1) {
       days = `0${days}`;

@@ -39,14 +39,14 @@
             <div class="form-group"><label>Start Date<span class="required"> *</span></label> 
               {{bs-datetimepicker 
                 noIcon=true 
-                date=startsAt 
+                date=model.startsAt 
                 updateDate=(action (mut model.startsAt))
               }}
             </div>
             <div class="form-group"><label>End Date<span class="required"> *</span></label> 
               {{bs-datetimepicker 
                 noIcon=true 
-                date=endsAt
+                date=model.endsAt
                 updateDate=(action (mut model.endsAt))
               }}
             </div>
