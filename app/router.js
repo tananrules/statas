@@ -10,8 +10,9 @@ Router.map(function() {
   this.route('login');
   this.route('users');
   this.route('clients', function() {
-    this.route('offers');
+    this.route('client', {path: ':client_id'});
     this.route('campaigns');
+    this.route('offers');
   });
 });
 
