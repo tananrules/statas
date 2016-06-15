@@ -48,7 +48,68 @@
           <div class="ibox float-e-margins">
             <div class="ibox-title">
               <h5>Info</h5>
+              <h5 class="pull-right pointer"{{action 'editInfo' on='click'}}>{{fa-icon 'edit'}}</h5>
             </div>
+            {{#if infoIsEditing}}
+            <div class="ibox-content">
+              <div class="row">
+                <div class="col-sm-4">
+                  Advertiser
+                </div>
+                <div class="col-sm-8">
+                  {{input class='input-sm form-control' value=model.name}}
+                </div>
+                <div class="col-sm-4">
+                  Address
+                </div>
+                <div class="col-sm-8">
+                  {{input class='input-sm form-control' value=model.address}}
+                </div>
+                <div class="col-sm-4">
+                  Suite  
+                </div>
+                <div class="col-sm-8">
+                  {{input class='input-sm form-control' value=model.address2}}
+                </div>
+                <div class="col-sm-4">
+                  City
+                </div>
+                <div class="col-sm-8">
+                  {{input class='input-sm form-control' value=model.city}}
+                </div>
+                <div class="col-sm-4">
+                  State
+                </div>
+                <div class="col-sm-8">
+                  {{input class='input-sm form-control' value=model.state}}
+                </div>
+                <div class="col-sm-4">
+                  Zip
+                </div>
+                <div class="col-sm-8">
+                  {{input class='input-sm form-control' value=model.zip}}
+                </div>
+                <div class="col-sm-4">
+                  Contact
+                </div>
+                <div class="col-sm-8">
+                  {{input class='input-sm form-control' value=model.contactName}}
+                </div>
+                <div class="col-sm-4">
+                  Email
+                </div>
+                <div class="col-sm-8">
+                  {{input class='input-sm form-control' value=model.contactEmail}}
+                </div>
+                <div class="col-sm-4">
+                  Phone
+                </div>
+                <div class="col-sm-8">
+                  {{input class='input-sm form-control' value=model.contactPhone}}
+                </div>
+              </div>
+            </div>
+            {{else}}
             <div class="ibox-content">
               <div class="row">
                 <div class="col-sm-4">
@@ -113,6 +174,7 @@
                 </div> --}}
               </div>
             </div>
+            {{/if}}
           </div>
         </div>
         <div class="col-lg-4">
@@ -121,7 +183,20 @@
               <div class="ibox float-e-margins">
                 <div class="ibox-title">
                   <h5>Details</h5>
+                  <h5 class="pull-right pointer"{{action 'editDetails' on='click'}}>{{fa-icon 'edit'}}</h5>
                 </div>
+                {{#if detailsIsEditing}}
+                <div class="ibox-content">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      Budget
+                    </div>
+                    <div class="col-sm-8">
+                      {{input class='form-control input-sm' value=model.budget placeholder='$'}}
+                    </div>
+                  </div>
+                </div>
+                {{else}}
                 <div class="ibox-content">
                   <div class="row">
                     <div class="col-sm-4">
@@ -132,6 +207,7 @@
                     </div>
                   </div>
                 </div>
+                {{/if}}
               </div>
             </div>
             <div class="col-lg-12">
@@ -156,7 +232,7 @@
         <div class="col-lg-4">
           <div class="ibox float-e-margins">
             <div class="ibox-title">
-              <h5>Campigns</h5>
+              <h5>Campaigns</h5>
             </div>
             <div class="ibox-content">
               <div class="row">

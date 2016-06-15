@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  infoIsEditing: false,
+  detailsIsEditing: false,
   campaignList: [ 
     {
       name: 'Campaigns',
@@ -54,5 +56,15 @@ export default Ember.Controller.extend({
       name: 'Status',
       data: 'Active'
     }
-  ]
+  ],
+
+
+  actions: {
+    editInfo() {
+      this.toggleProperty('infoIsEditing');
+    },
+    editDetails() {
+      this.toggleProperty('detailsIsEditing');
+    }
+  }
 });

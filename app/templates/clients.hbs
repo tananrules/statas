@@ -63,7 +63,7 @@
                 </thead>
                 <tbody>
                   {{#each model as |client index|}}
-                  {{#link-to 'clients.client' client tagName='tr'}}
+                  {{#link-to 'clients.client' client tagName='tr' classNames='pointer'}}
                     <td>{{addOne index}}</td>
                     <td>{{client.name}}</td>
                     <td></td>
