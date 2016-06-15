@@ -18,5 +18,9 @@ export default Model.extend({
   budget: attr('number'),
 
   campaigns: hasMany('campaign'),
-  offers: hasMany('offer')
+  offers: hasMany('offer'),
+
+  contactName: Ember.computed('contactFirstName', 'contactLastName', function() {
+    return `${this.get('contactFirstName')} ${this.get('contactLastName')}`;
+  })
 });
