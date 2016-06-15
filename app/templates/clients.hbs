@@ -52,6 +52,7 @@
                   <tr>
                     <th>#</th>
                     <th>Name</th>
+                    <th>Status</th>
                     <th>Offers</th>
                     <th>Budget</th>
                     <th>Spent</th>
@@ -63,9 +64,16 @@
                 </thead>
                 <tbody>
                   {{#each model as |client index|}}
-                  {{#link-to 'clients.client' client tagName='tr' classNames='pointer'}}
+                  <tr>
                     <td>{{addOne index}}</td>
-                    <td>{{client.name}}</td>
+                    {{#link-to 'clients.client' client tagName='td' classNames='pointer'}}{{client.name}}{{/link-to}}
+                    <td>
+                      {{#x-select value=client.status onchange=(action "updateStatus" client) class="form-control m-b input-sm imput-sm-padding" as |xs| }}
+                        {{#xs.option value='active'}}Active{{/xs.option}}
+                        {{#xs.option value='pause'}}Pause{{/xs.option}}
+                        {{!-- {{#xs.option value='delete'}}Delete{{/xs.option}} --}}
+                      {{/x-select}}
+                    </td>
                     <td></td>
                     <td>{{client.budget}}</td>
                     <td></td>
@@ -73,7 +81,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                  {{/link-to}}
+                  </tr>
                   {{/each}}
                 </tbody>
               </table>

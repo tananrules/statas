@@ -1,5 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  form: {}
+  form: {},
+
+  actions: {
+    updateStatus(user, component, status) {
+      
+    }
+  }
 });

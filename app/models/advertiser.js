@@ -16,6 +16,7 @@ export default Model.extend({
   zip: attr('string'),
   active: attr('boolean'),
   budget: attr('number'),
+  status: attr(),
 
   campaigns: hasMany('campaign'),
   offers: hasMany('offer'),
