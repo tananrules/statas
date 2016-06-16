@@ -58,21 +58,12 @@ export default Ember.Controller.extend({
     }
   ],
 
-
   actions: {
     editInfo() {
       this.toggleProperty('infoIsEditing');
     },
     editDetails() {
       this.toggleProperty('detailsIsEditing');
-    },
-    updateClient(model) {
-      this.store.findRecord('advertiser', model.id).then((record) => {
-        record.set('status', status);
-        record.save().then(() => {
-          this.toast.success(`${model.get('name')} updated successfully!!`);
-        });
-      });
     }
   }
 });

@@ -12,5 +12,16 @@ export default Ember.Route.extend({
   },
   model(params) {
     return this.store.peekAll('advertiser').findBy('id', params.client_id);
+  },
+  actions: {
+    updateClient(model) {
+      this.store.findRecord('advertiser', model.id).then((record) => {
+        record.set('status', status);
+        record.save().then(() => {
+          this.toast.success(`${model.get('name')} updated successfully!!`);
+          this.transitionTo('clients');
+        });
+      });
+    }
   }
 });
