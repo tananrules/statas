@@ -13,11 +13,13 @@
       </li>
     </ol>
   </div>
+  {{#if model.hasDirtyAttributes}}
   <div class="col-lg-3">
     <div class="title-action">
-      <button type="button" class="btn btn-w-m btn-primary pull-right" data-toggle="modal" data-target="#addClientModal">Add Client<span class="right">{{fa-icon 'angle-right'}}</span></button>
+      <button type="button" class="btn btn-w-m btn-primary pull-right"{{action 'updateClient' on='click'}}>Update Client</button>
     </div>
   </div>
+  {{/if}}
 </div>
 
 <div class="row">
@@ -48,131 +50,116 @@
               <h5>Info</h5>
               <h5 class="pull-right pointer"{{action 'editInfo' on='click'}}>{{fa-icon 'edit'}}</h5>
             </div>
-            {{#if infoIsEditing}}
             <div class="ibox-content">
               <div class="row">
                 <div class="col-sm-4">
-                  Advertiser
+                  <h5>Advertiser</h5>
                 </div>
                 <div class="col-sm-8">
-                  {{input class='input-sm form-control' value=model.name}}
-                </div>
-                <div class="col-sm-4">
-                  Address
-                </div>
-                <div class="col-sm-8">
-                  {{input class='input-sm form-control' value=model.address}}
-                </div>
-                <div class="col-sm-4">
-                  Suite  
-                </div>
-                <div class="col-sm-8">
-                  {{input class='input-sm form-control' value=model.address2}}
-                </div>
-                <div class="col-sm-4">
-                  City
-                </div>
-                <div class="col-sm-8">
-                  {{input class='input-sm form-control' value=model.city}}
-                </div>
-                <div class="col-sm-4">
-                  State
-                </div>
-                <div class="col-sm-8">
-                  {{input class='input-sm form-control' value=model.state}}
-                </div>
-                <div class="col-sm-4">
-                  Zip
-                </div>
-                <div class="col-sm-8">
-                  {{input class='input-sm form-control' value=model.zip}}
-                </div>
-                <div class="col-sm-4">
-                  Contact
-                </div>
-                <div class="col-sm-8">
-                  {{input class='input-sm form-control' value=model.contactName}}
-                </div>
-                <div class="col-sm-4">
-                  Email
-                </div>
-                <div class="col-sm-8">
-                  {{input class='input-sm form-control' value=model.contactEmail}}
-                </div>
-                <div class="col-sm-4">
-                  Phone
-                </div>
-                <div class="col-sm-8">
-                  {{input class='input-sm form-control' value=model.contactPhone}}
+                  {{#if infoIsEditing}}
+                    {{input class='form-control input-sm' value=model.name}}
+                  {{else}}
+                    {{model.name}}
+                  {{/if}}
                 </div>
               </div>
-            </div>
-            {{else}}
-            <div class="ibox-content">
               <div class="row">
                 <div class="col-sm-4">
-                  Advertiser
+                  <h5>Address</h5>
                 </div>
                 <div class="col-sm-8">
-                  <strong>{{model.name}}</strong>
+                  {{#if infoIsEditing}}
+                    {{input class='form-control input-sm' value=model.address}}
+                  {{else}}
+                    {{model.address}}
+                  {{/if}}
                 </div>
+              </div>
+              <div class="row">
                 <div class="col-sm-4">
-                  Address
+                  <h5>Suite</h5>  
                 </div>
                 <div class="col-sm-8">
-                  <strong>{{model.address}}</strong>
+                  {{#if infoIsEditing}}
+                    {{input class='form-control input-sm' value=model.address2}}
+                  {{else}}
+                    {{model.address2}}
+                  {{/if}}
                 </div>
+              </div>
+              <div class="row">
                 <div class="col-sm-4">
-                  Suite  
+                  <h5>Suite</h5>
                 </div>
                 <div class="col-sm-8">
-                  <strong>{{model.address2}}</strong>
+                  {{#if infoIsEditing}}
+                    {{input class='form-control input-sm' value=model.city}}
+                  {{else}}
+                    {{model.city}}
+                  {{/if}}
                 </div>
+              </div>
+              <div class="row">
                 <div class="col-sm-4">
-                  City
+                  <h5>State</h5>
                 </div>
                 <div class="col-sm-8">
-                  <strong>{{model.city}}</strong>
+                  {{#if infoIsEditing}}
+                    {{input class='form-control input-sm' value=model.state}}
+                  {{else}}
+                    {{model.state}}
+                  {{/if}}
                 </div>
+              </div>
+              <div class="row">
                 <div class="col-sm-4">
-                  State
+                  <h5>Zip</h5>
                 </div>
                 <div class="col-sm-8">
-                  <strong>{{model.state}}</strong>
+                  {{#if infoIsEditing}}
+                    {{input class='form-control input-sm' value=model.zip}}
+                  {{else}}
+                    {{model.zip}}
+                  {{/if}}
                 </div>
+              </div>
+              <div class="row">
                 <div class="col-sm-4">
-                  Zip
+                  <h5>Contact</h5>
                 </div>
                 <div class="col-sm-8">
-                  <strong>{{model.zip}}</strong>
+                  {{#if infoIsEditing}}
+                    {{input class='form-control input-sm' value=model.contactName}}
+                  {{else}}
+                    {{model.contactName}}
+                  {{/if}}
                 </div>
+              </div>
+              <div class="row">
                 <div class="col-sm-4">
-                  Contact
+                  <h5>Email</h5>
                 </div>
                 <div class="col-sm-8">
-                  <strong>{{model.contactName}}</strong>
+                  {{#if infoIsEditing}}
+                    {{input class='form-control input-sm' value=model.contactEmail}}
+                  {{else}}
+                    {{model.contactEmail}}
+                  {{/if}}
                 </div>
+              </div>
+              <div class="row">
                 <div class="col-sm-4">
-                  Email
+                  <h5>Phone</h5>
                 </div>
                 <div class="col-sm-8">
-                  <strong>{{model.contactEmail}}</strong>
+                  {{#if infoIsEditing}}
+                    {{input class='form-control input-sm' value=model.contactPhone}}
+                  {{else}}
+                    {{model.contactPhone}}
+                  {{/if}}
                 </div>
-                <div class="col-sm-4">
-                  Phone
-                </div>
-                <div class="col-sm-8">
-                  <strong>{{model.contactPhone}}</strong>
-                </div>
-                {{!-- <div class="col-sm-4">
-                  Backup Email
-                </div>
-                <div class="col-sm-8">
-                  <strong></strong>
-                </div> --}}
               </div>
             </div>
-            {{/if}}
           </div>
         </div>
         <div class="col-lg-4">
@@ -183,29 +170,20 @@
                   <h5>Details</h5>
                   <h5 class="pull-right pointer"{{action 'editDetails' on='click'}}>{{fa-icon 'edit'}}</h5>
                 </div>
-                {{#if detailsIsEditing}}
                 <div class="ibox-content">
                   <div class="row">
                     <div class="col-sm-4">
-                      Budget
+                      <h5>Budget</h5>
                     </div>
                     <div class="col-sm-8">
-                      {{input class='form-control input-sm' value=model.budget placeholder='$'}}
+                      {{#if detailsIsEditing}}
+                        {{input class='form-control input-sm' value=model.budget placeholder='$'}}
+                      {{else}}
+                        ${{model.budget}}
+                      {{/if}}
                     </div>
                   </div>
                 </div>
-                {{else}}
-                <div class="ibox-content">
-                  <div class="row">
-                    <div class="col-sm-4">
-                      Budget
-                    </div>
-                    <div class="col-sm-8">
-                      <strong>${{model.budget}}</strong>
-                    </div>
-                  </div>
-                </div>
-                {{/if}}
               </div>
             </div>
             <div class="col-lg-12">
@@ -233,16 +211,16 @@
               <h5>Campaigns</h5>
             </div>
             <div class="ibox-content">
+              {{#each campaignList as |item|}}
               <div class="row">
-                {{#each campaignList as |item|}}
                 <div class="col-sm-6">
-                  {{item.name}}
+                  <h5>{{item.name}}</h5>
                 </div>
                 <div class="col-sm-6">
-                  <strong>{{item.data}}</strong>
+                  {{item.data}}
                 </div>
-                {{/each}}
               </div>
+              {{/each}}
             </div>
           </div>
         </div>

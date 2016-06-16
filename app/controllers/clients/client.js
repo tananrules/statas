@@ -65,6 +65,9 @@ export default Ember.Controller.extend({
     },
     editDetails() {
       this.toggleProperty('detailsIsEditing');
+    },
+    updateClient() {
+      debugger
     }
   }
 });
