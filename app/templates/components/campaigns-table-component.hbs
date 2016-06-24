@@ -23,7 +23,10 @@
         {{#each model as |campaign index|}}
         <tr>
           <td>{{addOne index}}</td>
-          <td>{{campaign.name}}</td>
+          {{!-- <td>{{campaign.name}}</td> --}}
+          {{#link-to 'clients.client.campaign' campaign tagName='td' classNames='pointer'}}
+            {{campaign.name}}
+          {{/link-to}}
           <td></td>
           <td></td>
           <td>{{campaign.budget}}</td>
