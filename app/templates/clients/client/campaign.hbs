@@ -1,2 +1,99 @@
-I am a new Campaign
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-9">
+    <h2>Clients</h2>
+    <ol class="breadcrumb">
+      <li>
+        {{#link-to 'dashboard'}}Home{{/link-to}}
+      </li>
+      <li class="active">
+        {{#link-to 'clients'}}Clients{{/link-to}}
+      </li>
+      <li>
+        {{#link-to 'clients.client' parentModel}}{{parentModel.name}}{{/link-to}}
+      </li>
+      <li>
+        <strong>{{model.name}}</strong>
+      </li>
+    </ol>
+  </div>
+  <div class="col-lg-3">
+    <div class="title-action">
+      <a class="btn btn-primary" data-toggle="modal" data-target="#addClientModal">Add Campaign</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-lg-4 col-lg-offset-4">
+      <form>
+        <input type="text" placeholder="Search Offers " class="form-control">
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>{{model.name}} Details</h5>
+        </div>
+        <div class="ibox-content">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="col-lg-4">
+                <h5>Name</h5>
+              </div>
+              <div class="col-lg-8">
+                {{#if infoIsEditing}}
+                  {{input class='form-control input-sm' value=model.name}}
+                {{else}}
+                  {{model.name}}
+                {{/if}}
+              </div>  
+            </div>
+            <div class="col-lg-6">
+              <div class="col-lg-4">
+                <h5>Time Period</h5>
+              </div>
+              <div class="col-lg-8">
+                {{#if infoIsEditing}}
+                  {{input class='form-control input-sm' value=model.name}}
+                {{else}}
+                  {{model.startsAt}}
+                {{/if}}
+              </div>  
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="col-lg-4">
+                <h5>Budget</h5>
+              </div>
+              <div class="col-lg-8">
+                {{#if infoIsEditing}}
+                  {{input class='form-control input-sm' value=model.name}}
+                {{else}}
+                  {{model.budget}}
+                {{/if}}
+              </div>  
+            </div>
+            <div class="col-lg-6">
+              <div class="col-lg-4">
+                <h5>Budget Left</h5>
+              </div>
+              <div class="col-lg-8">
+                {{#if infoIsEditing}}
+                  
+                {{else}}
+                  
+                {{/if}}
+              </div>  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 {{outlet}}
