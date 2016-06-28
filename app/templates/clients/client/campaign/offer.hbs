@@ -1,1 +1,37 @@
-{{outlet}}
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-12">
+    <h2>{{model.name}}</h2>
+    <ol class="breadcrumb">
+      <li>
+        {{#link-to 'dashboard'}}Home{{/link-to}}
+      </li>
+      <li class="active">
+        {{#link-to 'clients'}}Clients{{/link-to}}
+      </li>
+      <li>
+        {{!-- {{#link-to 'clients.client' parentModel}}{{parentModel.name}}{{/link-to}} --}}
+      </li>
+      <li>
+        {{!-- {{#link-to 'clients.client' parentModel}}{{parentModel.name}}{{/link-to}} --}}
+      </li>
+      <li class="active">
+        <strong>{{model.name}}</strong>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Edit</h5>
+        </div>
+        <div class="ibox-content">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

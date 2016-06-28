@@ -12,7 +12,6 @@ export default Ember.Route.extend({
       let campaignID = controller.get('parentModel.id');
       controller.set('offers', offers).filterBy('campaignID', campaignID);
     });
-
   },
   model(params) {
     return this.store.findRecord('campaign', params.campaign_id);

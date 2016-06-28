@@ -1,6 +1,6 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-9">
-    <h2>Clients</h2>
+    <h2>{{model.name}}</h2>
     <ol class="breadcrumb">
       <li>
         {{#link-to 'dashboard'}}Home{{/link-to}}
@@ -140,7 +140,9 @@
                 {{#each offers as |offer index|}}
                 <tr>
                   <td>{{addOne index}}</td>
-                  <td>{{offer.name}}</td>
+                  {{#link-to 'clients.client.campaign.offer' offer tagName='td' classNames='pointer'}}
+                    {{offer.name}}
+                  {{/link-to}}
                   <td>{{offer.status}}</td>
                   <td>08 07 25
                     <div><small>days hour min</small></div>
