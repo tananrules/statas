@@ -137,19 +137,23 @@
                 </tr>
               </thead>
               <tbody>
+                {{#each offers as |offer index|}}
                 <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td>{{addOne index}}</td>
+                  <td>{{offer.name}}</td>
+                  <td>{{offer.status}}</td>
+                  <td>08 07 25
+                    <div><small>days hour min</small></div>
+                  </td>
+                  <td>5</td>
+                  <td>${{offer.budget}}</td>
+                  <td>$0</td>
+                  <td>$5000</td>
+                  <td>{{offer.reach}}</td>
+                  <td>5,000</td>
+                  <td>85%</td>
                 </tr>
+                {{/each}}
               </tbody>
             </table>
           </div>

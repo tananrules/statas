@@ -1,14 +1,26 @@
 import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
-import { belongsTo } from 'ember-data/relationships';
+// import { belongsTo } from 'ember-data/relationships';
 
 export default Model.extend({
-  name: attr('string'),
-  description: attr('string'),
-  icon: attr('string'),
-  amount: attr('string'),
-  time_remaining: attr('string'),
+  name: attr(),
+  offerText: attr(),
+  offerURL: attr(),
+  gender: attr(),
+  budget: attr(),
+  budgetLeft: attr(),
+  offerImageURL: attr(),
+  startDate: attr(),
+  endDate: attr(),
+  DMA: attr(),
+  campaignID: attr(),
+  reach: attr(),
+  rechNeeded: attr(),
+  status: attr(),
+  active: attr('boolean'),
+
+  // time_remaining: attr(),
   
-  campaign: belongsTo('campaign'),
-  advertiser: belongsTo('advertiser'),
+  // campaign: belongsTo('campaign'),
+  // advertiser: belongsTo('advertiser'),
 });
