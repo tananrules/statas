@@ -1,7 +1,7 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-9">
     <h2>{{model.name}}</h2>
-    <ol class="breadcrumb">
+    {{!-- <ol class="breadcrumb">
       <li>
         {{#link-to 'dashboard'}}Home{{/link-to}}
       </li>
@@ -14,7 +14,8 @@
       <li>
         <strong>{{model.name}}</strong>
       </li>
-    </ol>
+    </ol> --}}
+    {{bread-crumbs tagName="ol" outputStyle="bootstrap" linkable=true}}
   </div>
   <div class="col-lg-3">
     <div class="title-action">

@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  // breadCrumb: Ember.computed('model', function() {
+  //   debugger
+  //   title: this.get('model.name');
+  // }),
   renderTemplate() {
     this.render('clients.client.campaign', {into: 'application'});
   },
@@ -16,4 +20,7 @@ export default Ember.Route.extend({
   model(params) {
     return this.store.findRecord('campaign', params.campaign_id);
   },
+  afterModel(model) {
+    this.set('breadCrumb', {title: model.get('name')});
+  }
 });
