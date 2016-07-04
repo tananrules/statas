@@ -4,9 +4,10 @@ export default Ember.Route.extend({
   renderTemplate() {
     this.render('clients.client.campaign.offer', { into: 'application' });
   },
-  setupController(controller, model) {
-    this._super(controller, model);
-    let parentModel = this.modelFor('clients.client.campaign');
-    controller.set('parentModel', parentModel);
+  model(params) {
+    return this.store.findRecord('offer', params.offer_id);
   },
+  afterModel(model) {
+    this.set('breadCrumb', {title: model.get('name')});
+  }
 });

@@ -1,17 +1,7 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-9">
     <h2>{{model.name}}</h2>
-    <ol class="breadcrumb">
-      <li>
-        {{#link-to 'dashboard'}}Home{{/link-to}}
-      </li>
-      <li class="active">
-        {{#link-to 'clients'}}Clients{{/link-to}}
-      </li>
-      <li class="active">
-        <strong>{{model.name}}</strong>
-      </li>
-    </ol>
+    {{bread-crumbs tagName="ol" outputStyle="bootstrap" linkable=true}}
   </div>
   {{#if model.hasDirtyAttributes}}
   <div class="col-lg-3">

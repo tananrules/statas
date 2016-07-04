@@ -13,6 +13,9 @@ export default Ember.Route.extend({
   model(params) {
     return this.store.peekAll('advertiser').findBy('id', params.client_id);
   },
+  afterModel(model) {
+    this.set('breadCrumb', {title: model.get('name')});
+  },
   actions: {
     updateClient(model) {
       this.store.findRecord('advertiser', model.id).then((record) => {
