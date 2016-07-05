@@ -27,9 +27,8 @@
     </div>
     <div class="col-md-4">
       <div class="btn-group pull-right">
-        {{#link-to 'clients.index' tagName='button' class='btn btn-sm btn-default'}}Clients{{/link-to}}
-        {{#link-to 'clients.campaigns' tagName='button' class='btn btn-sm btn-default'}}Campaigns{{/link-to}}
-        {{#link-to 'clients.offers' tagName='button' class='btn btn-sm btn-default'}}Offers{{/link-to}}
+        <button class="btn btn-white" {{action 'showCampaigns'}}>Campaigns</button>
+        <button class="btn btn-white"{{action 'showOffers'}}>Offers</button>
       </div>
     </div>
   </div>
@@ -219,10 +218,17 @@
 
   <div class="row">
     <div class="col-lg-12">
-      {{campaigns-table-component
-        model=campaigns
-        title='Campaigns'
-      }}
+      {{#if displayingCampaigns}}
+        {{campaigns-table-component
+          model=campaigns
+          title='Campaigns'
+        }}
+      {{else}}
+        {{offers-table-component
+          model=offers
+          title='Offers'
+        }}
+      {{/if}}
     </div>
   </div>
 </div>

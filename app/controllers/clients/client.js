@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   infoIsEditing: false,
   detailsIsEditing: false,
+  displayingCampaigns: true,
   campaignList: [ 
     {
       name: 'Campaigns',
@@ -64,6 +65,12 @@ export default Ember.Controller.extend({
     },
     editDetails() {
       this.toggleProperty('detailsIsEditing');
+    },
+    showCampaigns() {
+
+    },
+    showOffers() {
+
     }
   }
 });
