@@ -5,10 +5,13 @@ export default Ember.Route.extend({
     this.render('clients.client', { into: 'application' });
   },
   setupController(controller, model) {
+    let modelId = model.get('id');
     this.store.findAll('campaign').then((campaigns) => {
+      campaigns= campaigns.filterBy('advertiserId', modelId);
       controller.set('campaigns', campaigns);
     });
     this.store.findAll('offer').then((offers) => {
+      offers = offers.filterBy('advertiserID', modelId);
       controller.set('offers', offers);
     });
     controller.set('model', model);

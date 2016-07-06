@@ -14,6 +14,7 @@ export default Model.extend({
   endDate: attr(),
   DMA: attr(),
   campaignID: attr(),
+  advertiserID: attr(),
   reach: attr(),
   reachNeeded: attr(),
   status: attr(),
