@@ -8,6 +8,9 @@ export default Ember.Route.extend({
     this.store.findAll('campaign').then((campaigns) => {
       controller.set('campaigns', campaigns);
     });
+    this.store.findAll('offer').then((offers) => {
+      controller.set('offers', offers);
+    });
     controller.set('model', model);
   },
   model(params) {

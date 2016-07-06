@@ -67,10 +67,10 @@ export default Ember.Controller.extend({
       this.toggleProperty('detailsIsEditing');
     },
     showCampaigns() {
-
+      this.set('displayingCampaigns', true);
     },
     showOffers() {
-
+      this.set('displayingCampaigns', false);
     }
   }
 });

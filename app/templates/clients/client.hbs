@@ -15,21 +15,28 @@
 
 <div class="wrapper wrapper-content">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div id="nestable-menu">
         <h4><a>Active</a> | <a>Inactive</a> | <a>All</a></h4>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <form>
         <input type="text" placeholder="Search Clients " class="form-control">
       </form>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="btn-group pull-right">
-        <button class="btn btn-white" {{action 'showCampaigns'}}>Campaigns</button>
-        <button class="btn btn-white"{{action 'showOffers'}}>Offers</button>
+        <button class="btn {{if (eq displayingCampaigns true) 'btn-primary' 'btn-white'}}"{{action 'showCampaigns'}}>Campaigns</button>
+        <button class="btn {{if (eq displayingCampaigns false) 'btn-primary' 'btn-white'}}"{{action 'showOffers'}}>Offers</button>
       </div>
+    </div>
+    <div class="col-md-3">
+      {{#if displayingCampaigns}}
+        <a class="btn btn-primary pull-right" data-toggle="modal" data-target="#addCampaignModal">Add Campaign</a>
+      {{else}}
+        <a class="btn btn-primary pull-right" data-toggle="modal" data-target="#addOfferModal">Add Offer</a>
+      {{/if}}
     </div>
   </div>
 
@@ -232,3 +239,6 @@
     </div>
   </div>
 </div>
+
+{{add-new-campaign-modal form=form store=store}}
+{{add-new-offer-modal form=form store=store}}
