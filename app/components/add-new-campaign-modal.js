@@ -7,10 +7,6 @@ const {
 export default Ember.Component.extend({
   selectedCampaignType: "",
 
-  clients: computed(function() {
-    return this.store.peekAll('advertiser');
-  }),
-
   actions: {
     createNewCampaign() {
       this.set('form.type', this.get('selectedCampaignType'));
