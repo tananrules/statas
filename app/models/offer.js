@@ -18,10 +18,6 @@ export default Model.extend({
   reachNeeded: attr(),
   status: attr(),
   active: attr('boolean'),
-  tags: attr(),
-  tagsNeeded: Ember.computed('tags', function() {
-    debugger
-  });
 
   // time_remaining: attr(),
   

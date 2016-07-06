@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  form: {},
   infoIsEditing: false,
   detailsIsEditing: false,
   displayingCampaigns: true,
