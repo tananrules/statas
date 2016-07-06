@@ -15,9 +15,13 @@ export default Model.extend({
   DMA: attr(),
   campaignID: attr(),
   reach: attr(),
-  rechNeeded: attr(),
+  reachNeeded: attr(),
   status: attr(),
   active: attr('boolean'),
+  tags: attr(),
+  tagsNeeded: Ember.computed('tags', function() {
+    debugger
+  });
 
   // time_remaining: attr(),
   

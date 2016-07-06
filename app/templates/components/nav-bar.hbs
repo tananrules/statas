@@ -30,9 +30,9 @@
       <li>
         <a><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Influencers</span></a>
       </li>
-      <li>
-        <a><i class="fa fa-envelope"></i> <span class="nav-label">Top Offers </span></a>
-      </li>
+      {{#link-to 'topOffers' tagName="li"}}
+        {{#link-to 'topOffers'}}<i class="fa fa-envelope"></i> <span class="nav-label">Top Offers </span>{{/link-to}}
+      {{/link-to}}
       <li>
         <a><i class="fa fa-pie-chart"></i> <span class="nav-label">Short URLs</span>  </a>
       </li>

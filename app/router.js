@@ -18,7 +18,7 @@ Router.map(function() {
     this.route('campaigns');
     this.route('offers');
   });
+  this.route('topOffers');
 });
 
 export default Router;
-5676073085829120
