@@ -3,6 +3,7 @@
     <h5>{{title}}</h5>
   </div>
   <div class="ibox-content">
+  {{#if (gt model.length 1)}}
     <div class="table-responsive">
       <table class="table table-hover">
         <thead>
@@ -43,5 +44,8 @@
         </tbody>
       </table>
     </div>
+  {{else}}
+    <h5>No Offers Present</h5>
+  {{/if}}
   </div>
 </div>
