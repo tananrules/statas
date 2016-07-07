@@ -11,9 +11,8 @@ Router.map(function() {
   this.route('users');
   this.route('clients', function() {
     this.route('client', {path: ':client_id'}, function() {
-      this.route('campaign', {path: 'campaign/:campaign_id'}, function() {
-        this.route('offer', {path: 'offer/:offer_id'});
-      });
+      this.route('campaign', {path: 'campaign/:campaign_id'});
+      this.route('offer', {path: 'offer/:offer_id'});
     });
     this.route('campaigns');
     this.route('offers');

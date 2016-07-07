@@ -24,7 +24,7 @@
           {{#each model as |offer index|}}
           <tr>
             <td>{{addOne index}}</td>
-            {{#link-to 'clients.client.campaign.offer' offer tagName='td' classNames='pointer'}}
+            {{#link-to 'clients.client.offer' offer tagName='td' classNames='pointer'}}
               {{offer.name}}
             {{/link-to}}
             <td>{{offer.status}}</td>

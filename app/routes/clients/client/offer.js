@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   renderTemplate() {
-    this.render('clients.client.campaign.offer', { into: 'application' });
+    this.render('clients.client.offer', { into: 'application' });
   },
   model(params) {
     return this.store.findRecord('offer', params.offer_id);

@@ -1,22 +1,16 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  // breadCrumb: Ember.computed('model', function() {
-  //   debugger
-  //   title: this.get('model.name');
-  // }),
   renderTemplate() {
     this.render('clients.client.campaign', {into: 'application'});
   },
-  setupController(controller, model) {
-    this._super(controller, model);
-    let parentModel = this.modelFor('clients.client');
-    controller.set('parentModel', parentModel);
-    this.store.findAll('offer').then((offers) => {
-      let campaignID = controller.get('parentModel.id');
-      controller.set('offers', offers).filterBy('campaignID', campaignID);
-    });
-  },
+  // setupController(controller, model) {
+  //   this._super(controller, model);
+  //   // let parentModel = this.modelFor('clients.client');
+  //   // controller.set('parentModel', parentModel);
+  //   let offers = this.store.peekAll('offer');
+  //   controller.set('offers', offers.filterBy('campaignID', model.get('id'))); 
+  // },
   model(params) {
     return this.store.findRecord('campaign', params.campaign_id);
   },

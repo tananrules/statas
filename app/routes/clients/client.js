@@ -14,7 +14,7 @@ export default Ember.Route.extend({
       offers = offers.filterBy('advertiserID', modelId);
       controller.set('offers', offers);
     });
-    controller.set('model', model);
+    this._super(controller, model);
   },
   model(params) {
     return this.store.peekAll('advertiser').findBy('id', params.client_id);
