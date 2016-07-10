@@ -6,32 +6,58 @@
     <table class="table">
       <thead>
         <tr>
-          <th></th>
+          <th>#</th>
           <th>Name</th>
-          <th>Offers</th>
+          <th>Infulencers</th>
+          <th>Reach</th>
+          <th>Clicks</th>
+          <th>Revenue</th>
+          <th>Cost</th>
+          <th>ROI</th>
           <th>Added</th>
-          {{#if showActions}}
           <th>Actions</th>
-          {{/if}}
         </tr>
       </thead>
       <tbody>
-        {{#each model as |offer|}}
+        {{#each model as |offer index|}}
         <tr>
-          <td>{{fa-icon offer.icon size=2}}</td>
-          <td>{{offer.name}}
-            <div>{{offer.description}}</div>
-          </td>
-          <td>{{offer.amount}}</td>
+          <td>{{addOne index}}</td>
+          <td>{{offer.name}}</td>
+          <td>50</td>
+          <td>10,000,000</td>
+          <td>50,000</td>
+          <td>$10000</td>
+          <td>$2000</td>
+          <td>$6000</td>
           <td class="font-medium">{{offer.timeRemaining}}
             <div class="font-small">days hour min</div> 
           </td>
-          {{#if showActions}}
-          <td>{{fa-icon 'edit'}}</td>
-          {{/if}}
+          <td>
+            {{#if (eq offer.approved false)}}
+            <i class="fa fa-check pointer" aria-hidden="true" {{action 'openApproveOfferModal' offer}}></i> &nbsp;&nbsp; 
+            {{/if}}
+            {{fa-icon 'eye' classNames='pointer'}}</td>
         </tr>
         {{/each}}
       </tbody>
     </table>
+  </div>
+</div>
+
+<div class="modal inmodal fade" id="approveOfferModal" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-dialog">
+    <form role="form" {{action 'approveOffer' on='submit'}}>
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h6 class="modal-title">Are you sure want to approve {{selectedOffer.name}}</h6>      
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-white">View</button>
+        <button type="button" class="btn btn-primary" type="submit">Approve</button>
+      </div>
+    </div>
+    </form>
   </div>
 </div>
