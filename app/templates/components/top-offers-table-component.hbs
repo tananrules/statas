@@ -36,7 +36,8 @@
             {{#if (eq offer.approved false)}}
             <i class="fa fa-check pointer" aria-hidden="true" {{action 'openApproveOfferModal' offer}}></i> &nbsp;&nbsp; 
             {{/if}}
-            {{fa-icon 'eye' classNames='pointer'}}</td>
+            <i class="fa fa-eye pointer" aria-hidden="true" {{action 'openViewOfferModal' offer}}></i>
+          </td>
         </tr>
         {{/each}}
       </tbody>
@@ -56,6 +57,106 @@
         <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-white">View</button>
         <button type="button" class="btn btn-primary" type="submit">Approve</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal inmodal fade" id="offerViewModal" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-dialog">
+    <form role="form" {{action 'approveOffer' on='submit'}}>
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h6 class="modal-title">{{selectedOffer.name}} Details</h6>      
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-6 b-r">
+            <img src="http://www.jetcharters.com/bundles/jetcharterspublic/images/image-not-found.jpg" height="200px" width="200px">
+          </div>
+          <div class="col-sm-6">
+            {{textarea class='form-control' value=selectedOffer.offerText rows=11 disabled=true}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <dl class="dl-horizontal m-t-md">
+              <dt>Gender</dt>
+              <dd>{{selectedOffer.gender}}</dd>
+              <dt>Age</dt>
+              <dd>18-35</dd>
+              <dt>DMA</dt>
+              <dd>{{selectedOffer.DMA}}</dd>
+              <dt>Tags</dt>
+              <dd></dd>
+              <dt>Budget</dt>
+              <dd>{{selectedOffer.budget}}</dd>
+              {{!-- <dt>MPP</dt>
+              <dd></dd> --}}
+              <dt>Reach</dt>
+              <dd>10,000,000</dd>
+              <dt>Influencer</dt>
+              <dd>50</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" {{action 'openDenyOfferModal'}}>Deny</button>
+        <button type="button" class="btn btn-primary" type="submit">Approve</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal inmodal fade" id="denyOfferModal" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-dialog">
+    <form role="form" {{action 'denyOffer' on='submit'}}>
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h6 class="modal-title">{{selectedOffer.name}} Details</h6>      
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-5 b-r">
+            <img src="http://www.jetcharters.com/bundles/jetcharterspublic/images/image-not-found.jpg" height="200px" width="200px">
+          </div>
+          <div class="col-sm-7">
+            <dl class="dl-horizontal m-t-md">
+              <dt>Gender</dt>
+              <dd>{{selectedOffer.gender}}</dd>
+              <dt>Age</dt>
+              <dd>18-35</dd>
+              <dt>DMA</dt>
+              <dd>{{selectedOffer.DMA}}</dd>
+              <dt>Tags</dt>
+              <dd></dd>
+              <dt>Budget</dt>
+              <dd>{{selectedOffer.budget}}</dd>
+              {{!-- <dt>MPP</dt>
+              <dd></dd> --}}
+              <dt>Reach</dt>
+              <dd>10,000,000</dd>
+              <dt>Influencer</dt>
+              <dd>50</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group"><label>Why Denied<span class="required"> *</span></label> 
+              {{textarea class="form-control" value=denyReason required="true" rows=4}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-white"{{action 'openApproveOfferModal' selectedOffer}}>Approve</button>
+        <button type="button" class="btn btn-danger" type="submit">Deny</button>
       </div>
     </div>
     </form>

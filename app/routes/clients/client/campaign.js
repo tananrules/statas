@@ -7,7 +7,7 @@ export default Ember.Route.extend({
   setupController(controller, model) {
     this._super(controller, model);
     //Another Network Request (can be fixed for optimization)
-    let offers = this.store.findAll('offer').then((offers) => {
+    this.store.findAll('offer').then((offers) => {
       controller.set('offers', offers.filterBy('campaignID', model.get('id'))); 
     });
   },
