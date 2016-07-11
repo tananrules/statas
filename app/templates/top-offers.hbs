@@ -1,6 +1,33 @@
-{{top-offers-table-component
-  model=model
-  store=store
-  title='Top Offers for Approval'
-}}
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-12">
+    <h2>Top Offers</h2>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content ">
+  <div class="row">
+    <div class="col-sm-offset-4 col-sm-4">
+      <form>
+        <input type="text" placeholder="Search Offers " class="form-control">
+      </form>
+    </div>
+    <div class="col-sm-4">
+      <div class="btn-group pull-right">
+        <button class="btn {{if (eq selectedOfferApproval 'liveOffers') 'btn-primary' 'btn-white'}}">Live Offers</button>
+        <button class="btn {{if (eq selectedOfferApproval 'offersApproval') 'btn-primary' 'btn-white'}}">Offers Approval</button>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-sm-12">
+      {{top-offers-table-component
+        model=model
+        store=store
+        title='Top Offers for Approval'
+      }}
+    </div>
+  </div>
+</div>
+
 

@@ -3,45 +3,47 @@
     <h5>{{title}}</h5>
   </div>
   <div class="ibox-content">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Infulencers</th>
-          <th>Reach</th>
-          <th>Clicks</th>
-          <th>Revenue</th>
-          <th>Cost</th>
-          <th>ROI</th>
-          <th>Added</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each model as |offer index|}}
-        <tr>
-          <td>{{addOne index}}</td>
-          <td>{{offer.name}}</td>
-          <td>50</td>
-          <td>10,000,000</td>
-          <td>50,000</td>
-          <td>$10000</td>
-          <td>$2000</td>
-          <td>$6000</td>
-          <td class="font-medium">{{offer.timeRemaining}}
-            <div class="font-small">days hour min</div> 
-          </td>
-          <td>
-            {{#if (eq offer.approved false)}}
-            <i class="fa fa-check pointer" aria-hidden="true" {{action 'openApproveOfferModal' offer}}></i> &nbsp;&nbsp; 
-            {{/if}}
-            <i class="fa fa-eye pointer" aria-hidden="true" {{action 'openViewOfferModal' offer}}></i>
-          </td>
-        </tr>
-        {{/each}}
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Infulencers</th>
+            <th>Reach</th>
+            <th>Clicks</th>
+            <th>Revenue</th>
+            <th>Cost</th>
+            <th>ROI</th>
+            <th>Added</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each model as |offer index|}}
+          <tr>
+            <td>{{addOne index}}</td>
+            <td>{{offer.name}}</td>
+            <td>50</td>
+            <td>10,000,000</td>
+            <td>50,000</td>
+            <td>$10000</td>
+            <td>$2000</td>
+            <td>$6000</td>
+            <td class="font-medium">{{offer.timeRemaining}}
+              <div class="font-small">days hour min</div> 
+            </td>
+            <td>
+              {{#if (eq offer.approved false)}}
+              <i class="fa fa-check pointer" aria-hidden="true" {{action 'openApproveOfferModal' offer}}></i> &nbsp;&nbsp; 
+              {{/if}}
+              <i class="fa fa-eye pointer" aria-hidden="true" {{action 'openViewOfferModal' offer}}></i>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
