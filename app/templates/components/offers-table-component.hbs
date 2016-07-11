@@ -30,8 +30,8 @@
               {{offer.name}}
             {{/link-to}}
             <td>{{offer.status}}</td>
-            <td>08 07 25
-              <div><small>days hour min</small></div>
+            <td class="font-medium">{{timeRemaining offer.createdAt}}
+              <div class="font-small">days hour min</div> 
             </td>
             <td>5</td>
             <td>${{offer.budget}}</td>
