@@ -13,6 +13,7 @@ export default Ember.Component.extend({
 
     openViewOfferModal(offer) {
       this.set('selectedOffer', offer);
+      Ember.$('#approveOfferModal').modal('hide');
       Ember.$('#offerViewModal').modal('show');
     },
 
@@ -28,6 +29,7 @@ export default Ember.Component.extend({
       offer.save().then(() => {
         this.toast.success(`${this.get('selectedOffer.name')} approved successfully!!`);
         Ember.$('#approveOfferModal').modal('hide');
+        Ember.$('#offerViewModal').modal('hide');
       });
     },
 

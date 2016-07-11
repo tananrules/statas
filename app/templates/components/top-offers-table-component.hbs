@@ -57,7 +57,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-white">View</button>
+        <button type="button" class="btn btn-white" {{action 'openViewOfferModal' selectedOffer}}>View</button>
         <button type="button" class="btn btn-primary" type="submit">Approve</button>
       </div>
     </div>
@@ -105,10 +105,12 @@
           </div>
         </div>
       </div>
+      {{#if (eq selectedOffer.approved false)}}
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" {{action 'openDenyOfferModal'}}>Deny</button>
         <button type="button" class="btn btn-primary" type="submit">Approve</button>
       </div>
+      {{/if}}
     </div>
     </form>
   </div>
@@ -156,10 +158,12 @@
           </div>
         </div>
       </div>
+      {{#if (eq selectedOffer.approved false)}}
       <div class="modal-footer">
         <button type="button" class="btn btn-white"{{action 'openApproveOfferModal' selectedOffer}}>Approve</button>
         <button type="button" class="btn btn-danger" type="submit">Deny</button>
       </div>
+      {{/if}}
     </div>
     </form>
   </div>
