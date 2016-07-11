@@ -9,5 +9,9 @@ export default Ember.Route.extend({
   },
   afterModel(model) {
     this.set('breadCrumb', {title: model.get('name')});
-  }
+    Ember.run.later((function() {
+      Ember.$('.datatTables').DataTable();
+    }), 1500);
+  },
+
 });
