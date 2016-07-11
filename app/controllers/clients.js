@@ -11,6 +11,14 @@ export default Ember.Controller.extend({
           this.toast.success(`${client.get('name')} changed to ${status}`);
         });
       });
+    },
+    filter(type) {
+      if(type !== 'all') {  
+        let filteredClients = this.store.peekAll('advertiser').filterBy('status', type);
+        this.set('model', filteredClients);
+      } else {
+        this.set('model', this.store.peekAll('advertiser'));
+      }
     }
   }
 });

@@ -13,7 +13,7 @@
   <div class="row">
     <div class="col-md-4">
       <div id="nestable-menu">
-        <h4><a>Active</a> | <a>Inactive</a> | <a>All</a></h4>
+        <h4><a {{action 'filter' 'active'}}>Active</a> | <a {{action 'filter' 'pause'}}>Inactive</a> | <a {{action 'filter' 'all'}}>All</a></h4>
       </div>
     </div>
     <div class="col-md-4">
@@ -36,6 +36,7 @@
           <h5>All Clients</h5>
         </div>
         <div class="ibox-content">
+        {{#if (gt model.length 0)}}
           <div class="table-responsive">
             <table class="table table-hover">
               <thead>
@@ -76,6 +77,9 @@
               </tbody>
             </table>
           </div>
+        {{else}}
+          <h5>No Clients Present</h5>
+        {{/if}}
         </div>
       </div>
     </div>
