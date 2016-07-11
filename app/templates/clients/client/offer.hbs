@@ -11,19 +11,48 @@
       <div class="ibox float-e-margins">
         <div class="ibox-title">
           <h5>Edit {{model.name}}</h5>
+          {{#if model.hasDirtyAttributes}}
+            <h5 class="pull-right"><button class="btn btn-primary btn-sm"{{action 'updateOffer' model on='click'}}>Update Offer</button></h5>
+          {{else}}
+            <h5 class="pull-right pointer"{{action 'editOffer' on='click'}}>{{fa-icon 'edit'}}</h5>
+          {{/if}}
         </div>
         <div class="ibox-content">
           <div class="row">
             <div class="col-md-4">
               <dl class="dl-horizontal m-t-md">
-                <dt>{{model.name}}</dt>
+                <dt>
+                {{#if isEditing}}
+                  {{input class='form-control input-sm' value=model.name}}
+                {{else}}
+                  {{model.name}}
+                {{/if}}
+                </dt>
                 <dd></dd>
                 <dt>Offer Budget</dt>
-                <dd>{{model.budget}}</dd>
+                <dd>
+                {{#if isEditing}}
+                  {{input class='form-control input-sm' value=model.budget}}
+                {{else}}
+                  {{model.budget}}
+                {{/if}}
+                </dd>
                 <dt>Offer Budget</dt>
-                <dd>{{model.budget}}</dd>
+                <dd>
+                {{#if isEditing}}
+                  {{input class='form-control input-sm' value=model.budget}}
+                {{else}}
+                  {{model.budget}}
+                {{/if}}
+                </dd>
                 <dt>URL</dt>
-                <dd>{{model.offerURL}}</dd>
+                <dd>
+                {{#if isEditing}}
+                  {{input class='form-control input-sm' value=model.offerURL}}
+                {{else}}
+                  {{model.offerURL}}
+                {{/if}}
+                </dd>
               </dl>
             </div>
             <div class="col-md-4">
